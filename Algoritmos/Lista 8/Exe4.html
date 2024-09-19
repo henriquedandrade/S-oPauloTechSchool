@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4 - Lista 8</title>
+</head>
+<body>
+    Informe o seu login:
+    <input type="text" id="ipt_usuario"> <br>
+
+    Informe a senha:
+    <input type="password" id="ipt_password"><br>
+    
+    Informa uma dica pessoal:
+    <input type="text" id="ipt_dica"><br>
+
+    <button onclick="autenticar()">Autenticar</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var n=3;
+    function autenticar() {
+        var  usuario = ipt_usuario.value;
+        var password = ipt_password.value;
+        var dica =     ipt_dica.value;
+        
+        if (n > 1 && usuario == 'ana' && password =='braga' && (dica == '1949' || dica =='louro josé') ){
+            div_mensagem.innerHTML =  "Usuário Autenticado!";   
+            n=3         
+        } else if (n > 1){
+            n= n-1;
+            div_mensagem.innerHTML = ` Falha na Autenticação <br> Você ainda tem ${n} tentativa(s) `;
+        } else {
+            div_mensagem.innerHTML = `Usuário BLOQUEADO! Procure seu gerente!`;
+            usuario =  '';
+            password = '';
+            dica =     '';           
+        }                
+    }
+</script>
